@@ -1,0 +1,375 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Günlük Kazanç Hedefi — Gizlilik</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #F7F8FA;
+    --surface: #FFFFFF;
+    --text: #1C2430;
+    --muted: #5B6472;
+    --accent: #0F766E;
+    --accent-soft: #E4F1EF;
+    --border: #E2E5EA;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10151A;
+      --surface: #171E24;
+      --text: #E7EAEE;
+      --muted: #97A2AE;
+      --accent: #2DD4BF;
+      --accent-soft: #16332F;
+      --border: #262E36;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10151A;
+    --surface: #171E24;
+    --text: #E7EAEE;
+    --muted: #97A2AE;
+    --accent: #2DD4BF;
+    --accent-soft: #16332F;
+    --border: #262E36;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.6;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  h1, h2 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    text-wrap: balance;
+  }
+  .wrap {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+  header.top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+  .brand .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex: none;
+  }
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    background: var(--surface);
+    gap: 2px;
+  }
+  .lang-toggle button {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  .lang-toggle button[aria-pressed="true"] {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .hero {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 28px 26px;
+    margin-bottom: 22px;
+  }
+  .hero .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .hero .updated {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .intro {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin: 0 0 26px;
+  }
+
+  section {
+    padding-block: 20px;
+    border-top: 1px solid var(--border);
+  }
+  section:first-of-type { border-top: none; padding-top: 0; }
+
+  h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  h2 .num {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 2px 7px;
+    flex: none;
+  }
+  section p {
+    margin: 0 0 10px;
+    max-width: 62ch;
+  }
+  section ul {
+    margin: 0 0 10px;
+    padding-inline-start: 1.2em;
+    max-width: 62ch;
+  }
+  section li {
+    margin-bottom: 6px;
+  }
+  section p:last-child, section ul:last-child { margin-bottom: 0; }
+
+  .callout {
+    border: 1px solid var(--border);
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    color: var(--text);
+    margin-top: 10px;
+  }
+  .callout strong { color: var(--accent); }
+
+  .contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .contact button {
+    appearance: none;
+    border: none;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .draft-note {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  [lang="en"] { display: none; }
+  [data-lang="en"] [lang="en"] { display: block; }
+  [data-lang="en"] [lang="tr"] { display: none; }
+  span[lang] { display: inline; }
+  [data-lang="en"] span[lang="en"] { display: inline; }
+  [data-lang="en"] span[lang="tr"] { display: none; }
+</style>
+
+<div class="wrap" id="page">
+  <header class="top">
+    <div class="brand"><span class="dot"></span> Günlük Kazanç Hedefi</div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="tr" aria-pressed="true">TR</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow" lang="tr">Gizlilik Politikası</p>
+    <p class="eyebrow" lang="en">Privacy Policy</p>
+    <h1 lang="tr">Günlük Kazanç Hedefi — Gizlilik Politikası</h1>
+    <h1 lang="en">Günlük Kazanç Hedefi — Privacy Policy</h1>
+    <p class="updated" lang="tr">Son güncelleme: 21 Ekim 2026</p>
+    <p class="updated" lang="en">Last updated: October 21, 2026</p>
+  </div>
+
+  <p class="intro" lang="tr">Bu gizlilik politikası, Günlük Kazanç Hedefi uygulamasının ("Uygulama") kişisel verilerinizi nasıl işlediğini açıklar. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz.</p>
+  <p class="intro" lang="en">This privacy policy explains how the Günlük Kazanç Hedefi app ("App") handles your personal data. By using the App, you agree to this policy.</p>
+
+  <section>
+    <h2><span class="num">1</span><span lang="tr">Toplanan veriler</span><span lang="en">Data we collect</span></h2>
+    <p lang="tr">Uygulama şu verileri toplar/oluşturur:</p>
+    <ul lang="tr">
+      <li>Girdiğiniz günlük kazanç, iş kalemi ve harcama kayıtları (ad, tutar, tarih); şoför modunda girdiğiniz veya GPS ile ölçtüğünüz yolculuk bilgileri (kilometre, ücret, tarih/saat)</li>
+      <li>Girdiğiniz randevular (başlık, not, tarih/saat) ve alacak kayıtları (kişi/müşteri adı, tutar, vade)</li>
+      <li>Sabit gider bilgileriniz (kira, fatura, kredi, üyelik vb. — yalnızca sizin girdiğiniz ad ve tutarlar)</li>
+      <li>Uygulama ayarlarınız (meslek, para birimi, çalışma günleri, bildirim tercihleri, dil seçimi)</li>
+      <li>Konum verisi (isteğe bağlı, yalnızca şoför modu): yolculuk mesafesini ölçmek için, yalnızca "Yolculuk ekle" ile ölçüm başlattığınızda GPS konumunuz kullanılır</li>
+      <li>Google hesabıyla giriş yaparsanız: Google hesabınızın e-posta adresi, adı ve benzersiz hesap kimliği (UID)</li>
+    </ul>
+    <p lang="en">The App collects or creates the following data:</p>
+    <ul lang="en">
+      <li>Daily earnings, job items and expenses you enter (name, amount, date); in driver mode, trips you enter or measure via GPS (distance, fare, date/time)</li>
+      <li>Appointments (title, note, date/time) and receivable records (person/customer name, amount, due date) you enter</li>
+      <li>Your fixed expense entries (rent, bills, loans, memberships, etc. — only the names and amounts you enter)</li>
+      <li>Your app settings (profession, currency, work days, notification preferences, language)</li>
+      <li>Location data (optional, driver mode only): your GPS location is used only while an active trip measurement is running (from "Add trip" to "Finish")</li>
+      <li>If you sign in with Google: your account's email address, name and unique account ID (UID)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span><span lang="tr">Verilerin saklanması</span><span lang="en">How data is stored</span></h2>
+    <p lang="tr">Veriler öncelikle cihazınızda yerel olarak saklanır (Android'in Room/SQLite veritabanı ve SharedPreferences teknolojileriyle). Google hesabınızla giriş yapmayı tercih ederseniz, telefon değiştirdiğinizde veya uygulamayı yeniden kurduğunuzda verileriniz kaybolmasın diye, verileriniz Google'ın Firebase/Cloud Firestore altyapısında (Avrupa bölgesindeki sunucularda) da, yalnızca sizin Google hesap kimliğinizle ilişkilendirilmiş olarak saklanır.</p>
+    <div class="callout" lang="tr"><strong>Giriş yapmazsanız</strong> verileriniz yalnızca cihazınızda kalır ve buluta hiç gönderilmez.</div>
+    <p lang="en">Data is stored locally on your device by default (using Android's Room/SQLite database and SharedPreferences). If you choose to sign in with your Google account, your data is also stored in Google's Firebase/Cloud Firestore infrastructure (servers in the European region), associated only with your Google account ID, so it survives switching phones or reinstalling the App.</p>
+    <div class="callout" lang="en"><strong>If you don't sign in,</strong> your data stays only on your device and is never sent to the cloud.</div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span><span lang="tr">Konum izni</span><span lang="en">Location permission</span></h2>
+    <p lang="tr">Konum izni isteğe bağlıdır ve yalnızca şoför modunda GPS ile yolculuk mesafesi ölçmek için istenir. Ölçüm "Yolculuk ekle" ile başlar, "Bitir" ile sona erer; bu sırada bir bildirim sürekli görünür kalır (Android'in ön plan servisi kuralı gereği). Konum verisi kaydedilmez, yalnızca o anki mesafe hesabında kullanılır ve ölçüm bitince atılır. Konum verisi hiçbir zaman buluta gönderilmez.</p>
+    <p lang="en">Location permission is optional and requested solely to measure trip distance via GPS in driver mode. Measurement starts with "Add trip" and ends with "Finish"; a notification stays visible throughout (required by Android's foreground service rules). Location data is not stored — it's used only for the live distance calculation and discarded once measurement ends. It is never sent to the cloud.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span><span lang="tr">Bildirim izni</span><span lang="en">Notification permission</span></h2>
+    <p lang="tr">Günlük hedef hatırlatması, randevu ve alacak hatırlatmaları, sabit gider ödeme günü uyarıları ve yolculuk ölçüm bildirimi göstermek için bildirim izni istenir. Bu bildirimler yalnızca cihazınızda gösterilir.</p>
+    <p lang="en">Notification permission is requested to show the daily target reminder, appointment and receivable reminders, fixed-expense due-date warnings, and the trip-tracking notification. These notifications are shown only on your device.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span><span lang="tr">Üçüncü taraflarla paylaşım</span><span lang="en">Sharing with third parties</span></h2>
+    <p lang="tr">Uygulama hiçbir veriyi reklam, pazarlama veya analitik amacıyla üçüncü taraflarla paylaşmaz, satmaz veya kiralamaz. Pro sürüm satın alma işlemi Google Play tarafından yürütülür; kart veya ödeme bilgileriniz uygulamaya iletilmez ve bizde saklanmaz. Google hesabıyla giriş yaptığınızda kullanılan Google Sign-In (kimlik doğrulama) ve Cloud Firestore (veri senkronizasyonu) hizmetleri, verilerinizi yalnızca Uygulamanın kendi işlevini — verilerinizi cihazlar arasında senkronize etmek — yerine getirmesi için Google'ın altyapı sağlayıcısı sıfatıyla işler; reklam veya izleme amacıyla kullanılmaz.</p>
+    <p lang="en">The App does not share, sell or rent any data to third parties for advertising, marketing or analytics purposes. The Pro purchase is processed by Google Play; your card or payment details are never passed to or stored by the App. When you sign in with Google, the Google Sign-In (authentication) and Cloud Firestore (data sync) services process your data solely as Google's infrastructure provider, to perform the App's own function of syncing your data across devices — never for advertising or tracking.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span><span lang="tr">Veri güvenliği ve silme hakkı</span><span lang="en">Data security and deletion</span></h2>
+    <p lang="tr">Google ile giriş yapmadıysanız verileriniz yalnızca cihazınızda olduğu için güvenliği büyük ölçüde cihazınızın kendi güvenliğine (kilit ekranı, şifreleme) bağlıdır. Google ile giriş yaptıysanız, buluttaki verileriniz yalnızca kendi hesabınızla erişilebilir güvenlik kurallarıyla korunur. Ayarlar &gt; Verilerim bölümünden cihazınızdaki tüm verilerinizi tek dokunuşla, kalıcı olarak silebilirsiniz. Buluttaki verilerinizin tamamen silinmesini isterseniz aşağıdaki adresten bize ulaşabilirsiniz.</p>
+    <p lang="en">If you haven't signed in with Google, your data stays only on your device, so its security largely depends on your device's own security (lock screen, encryption). If you have signed in, your cloud data is protected by security rules that only allow access from your own account. You can permanently delete all data on your device from Settings &gt; My Data. To have your cloud data fully deleted as well, contact us at the address below.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span><span lang="tr">Çocukların gizliliği</span><span lang="en">Children's privacy</span></h2>
+    <p lang="tr">Uygulama, günlük kazancını takip etmek isteyen çalışanlara ve esnafa yönelik bir araçtır ve 18 yaş altı kullanıcılara yönelik değildir. Bilerek çocuklardan veri toplanmaz.</p>
+    <p lang="en">The App is an earnings-tracking tool for working people and tradespeople and is not directed at users under 18. We do not knowingly collect data from children.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">8</span><span lang="tr">Politika değişiklikleri</span><span lang="en">Changes to this policy</span></h2>
+    <p lang="tr">Bu politika zaman zaman güncellenebilir. Önemli değişiklikler uygulama içinde duyurulur.</p>
+    <p lang="en">This policy may be updated from time to time. Significant changes will be announced within the App.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">9</span><span lang="tr">İletişim</span><span lang="en">Contact</span></h2>
+    <p lang="tr">Sorularınız için bize ulaşabilirsiniz:</p>
+    <p lang="en">For questions, reach us at:</p>
+    <div class="contact">
+      <span id="email">bitesdeveloper@gmail.com</span>
+      <button type="button" id="copyBtn" data-tr="Kopyala" data-en="Copy">Kopyala</button>
+    </div>
+  </section>
+
+  <p class="draft-note">
+    <span lang="tr">Günlük Kazanç Hedefi, herhangi bir platform veya markayla resmi olarak bağlantılı değildir; kullanıcıların kendi gelir ve giderlerini takip etmesi için bağımsız olarak geliştirilmiştir.</span>
+    <span lang="en">Günlük Kazanç Hedefi is not officially affiliated with any platform or brand; it is an independent tool built for people to track their own income and expenses.</span>
+  </p>
+</div>
+
+<script>
+(function () {
+  var page = document.getElementById('page');
+  var buttons = document.querySelectorAll('[data-lang-btn]');
+  function setLang(lang) {
+    page.setAttribute('data-lang', lang);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+    });
+    var copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) copyBtn.textContent = copyBtn.getAttribute('data-' + lang) || copyBtn.textContent;
+    try { localStorage.setItem('skh-privacy-lang', lang); } catch (e) {}
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('skh-privacy-lang'); } catch (e) {}
+  setLang(saved === 'en' ? 'en' : 'tr');
+
+  var copyBtn = document.getElementById('copyBtn');
+  var emailEl = document.getElementById('email');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var text = emailEl.textContent;
+      function done() {
+        var lang = page.getAttribute('data-lang') || 'tr';
+        copyBtn.textContent = lang === 'en' ? 'Copied' : 'Kopyalandı';
+        setTimeout(function () {
+          copyBtn.textContent = copyBtn.getAttribute('data-' + lang);
+        }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {
+          var range = document.createRange();
+          range.selectNodeContents(emailEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        });
+      }
+    });
+  }
+})();
+</script>
+
+</body></html>

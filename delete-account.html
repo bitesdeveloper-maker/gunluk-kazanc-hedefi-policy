@@ -1,0 +1,246 @@
+<title>Günlük Kazanç Hedefi — Veri Silme</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #F7F8FA;
+    --surface: #FFFFFF;
+    --text: #1C2430;
+    --muted: #5B6472;
+    --accent: #0F766E;
+    --accent-soft: #E4F1EF;
+    --border: #E2E5EA;
+    --danger: #B3261E;
+    --danger-soft: #FBEAE9;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10151A;
+      --surface: #171E24;
+      --text: #E7EAEE;
+      --muted: #97A2AE;
+      --accent: #2DD4BF;
+      --accent-soft: #16332F;
+      --border: #262E36;
+      --danger: #FF6B6B;
+      --danger-soft: #331A19;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10151A;
+    --surface: #171E24;
+    --text: #E7EAEE;
+    --muted: #97A2AE;
+    --accent: #2DD4BF;
+    --accent-soft: #16332F;
+    --border: #262E36;
+    --danger: #FF6B6B;
+    --danger-soft: #331A19;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    line-height: 1.6;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  h1, h2 {
+    font-family: "IBM Plex Serif", Georgia, serif;
+    text-wrap: balance;
+  }
+  .wrap { max-width: 680px; margin-inline: auto; }
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 12px; margin-bottom: 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.95rem; color: var(--muted); }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
+  .lang-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; padding: 3px; background: var(--surface); gap: 2px; }
+  .lang-toggle button {
+    appearance: none; border: none; background: transparent; color: var(--muted);
+    font: inherit; font-size: 0.82rem; font-weight: 600; padding: 6px 14px;
+    border-radius: 999px; cursor: pointer; letter-spacing: 0.02em;
+  }
+  .lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+  .hero { border: 1px solid var(--border); background: var(--surface); border-radius: 16px; padding: 28px 26px; margin-bottom: 22px; }
+  .hero .eyebrow { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 8px; }
+  .hero p { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 58ch; }
+
+  .cards { display: grid; gap: 16px; grid-template-columns: 1fr; margin-bottom: 8px; }
+  @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+
+  .card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card .tag {
+    display: inline-flex; align-self: flex-start;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 3px 8px;
+  }
+  .card h2 { font-size: 1.05rem; font-weight: 600; margin: 0; }
+  .card ol { margin: 0; padding-inline-start: 1.2em; }
+  .card li { margin-bottom: 6px; }
+  .card p { margin: 0; }
+  .card .note { font-size: 0.85rem; color: var(--muted); }
+
+  .request {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 16px;
+  }
+  .request .tag {
+    display: inline-flex; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--danger); background: var(--danger-soft); border-radius: 6px; padding: 3px 8px; margin-bottom: 10px;
+  }
+  .request h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 8px; }
+  .request p { margin: 0 0 10px; max-width: 60ch; }
+  .contact {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border); background: var(--bg);
+    border-radius: 10px; padding: 8px 12px; font-size: 0.92rem; font-weight: 500;
+  }
+  .contact button {
+    appearance: none; border: none; background: var(--accent-soft); color: var(--accent);
+    font: inherit; font-size: 0.78rem; font-weight: 600; padding: 4px 9px; border-radius: 6px; cursor: pointer;
+  }
+  .retain { margin-top: 12px; font-size: 0.88rem; color: var(--muted); }
+
+  .draft-note { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
+
+  [lang="en"] { display: none; }
+  [data-lang="en"] [lang="en"] { display: block; }
+  [data-lang="en"] [lang="tr"] { display: none; }
+  span[lang] { display: inline; }
+  [data-lang="en"] span[lang="en"] { display: inline; }
+  [data-lang="en"] span[lang="tr"] { display: none; }
+</style>
+
+<div class="wrap" id="page">
+  <header class="top">
+    <div class="brand"><span class="dot"></span> Günlük Kazanç Hedefi</div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="tr" aria-pressed="true">TR</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow" lang="tr">Hesap ve Veri Silme</p>
+    <p class="eyebrow" lang="en">Account and Data Deletion</p>
+    <h1 lang="tr">Hesabını ve verilerini nasıl silersin</h1>
+    <h1 lang="en">How to delete your account and data</h1>
+    <p lang="tr">Günlük Kazanç Hedefi'nde hesabını Google ile açtıysan, aşağıdaki iki yoldan biriyle verilerini silebilirsin.</p>
+    <p lang="en">If you created your account with Google in Günlük Kazanç Hedefi, you can delete your data using either of the methods below.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <span class="tag" lang="tr">Uygulama içinden</span>
+      <span class="tag" lang="en">In the app</span>
+      <h2 lang="tr">Cihazındaki verileri sil</h2>
+      <h2 lang="en">Delete data on your device</h2>
+      <ol lang="tr">
+        <li>Uygulamayı aç, <strong>Ayarlar</strong> sekmesine git</li>
+        <li><strong>Verilerim</strong> bölümünü bul</li>
+        <li><strong>"Tüm verilerimi sil"</strong> butonuna dokun ve onayla</li>
+      </ol>
+      <ol lang="en">
+        <li>Open the app and go to the <strong>Settings</strong> tab</li>
+        <li>Find the <strong>My Data</strong> section</li>
+        <li>Tap <strong>"Delete all my data"</strong> and confirm</li>
+      </ol>
+      <p class="note" lang="tr">Bu, cihazındaki tüm kayıtları anında ve kalıcı olarak siler. Google hesabınla senkronize ettiğin bulut verilerini de tamamen kaldırmak istersen, sağdaki yöntemi kullan.</p>
+      <p class="note" lang="en">This instantly and permanently deletes all records on your device. To also fully remove any cloud data synced via your Google account, use the method on the right.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag" lang="tr">E-posta ile</span>
+      <span class="tag" lang="en">By email</span>
+      <h2 lang="tr">Hesabını ve bulut verilerini sil</h2>
+      <h2 lang="en">Delete your account and cloud data</h2>
+      <p lang="tr">Google ile giriş yaptıysan, hesabına bağlı tüm verilerin (senkronize edilmiş kayıtlar, giderler, ayarlar) tamamen ve kalıcı olarak silinmesini talep edebilirsin.</p>
+      <p lang="en">If you signed in with Google, you can request the complete and permanent deletion of all data linked to your account (synced records, expenses, settings).</p>
+      <div class="contact">
+        <span id="email">bitesdeveloper@gmail.com</span>
+        <button type="button" id="copyBtn" data-tr="Kopyala" data-en="Copy">Kopyala</button>
+      </div>
+      <p class="note" lang="tr">E-postanda, hesabına giriş yaptığın Google e-posta adresini belirt. Talebini en geç <strong>30 gün içinde</strong> işleme alır ve seni bilgilendiririz.</p>
+      <p class="note" lang="en">Include the Google email address you signed in with. We process requests within <strong>30 days</strong> and confirm once done.</p>
+    </div>
+  </div>
+
+  <div class="request">
+    <span class="tag" lang="tr">Silinen veriler</span>
+    <span class="tag" lang="en">What gets deleted</span>
+    <h2 lang="tr">Talebin işleme alındığında ne silinir</h2>
+    <h2 lang="en">What happens when your request is processed</h2>
+    <p lang="tr">Google hesap kimliğinle ilişkili tüm günlük kazanç kayıtları, iş kalemleri, yolculuklar, giderler, birikimler, dönem özetleri ve ayarlar Firebase/Cloud Firestore'dan kalıcı olarak silinir. Google hesabının kendisi (Gmail vb.) bu işlemden etkilenmez — yalnızca uygulamamızın sakladığı veriler silinir.</p>
+    <p lang="en">All daily earnings records, job items, trips, expenses, savings, period summaries and settings linked to your Google account ID are permanently deleted from Firebase/Cloud Firestore. Your Google account itself (Gmail etc.) is not affected — only the data our app has stored is removed.</p>
+    <p class="retain" lang="tr">Yasal zorunluluk olmadığı sürece hiçbir veri talep sonrası saklanmaz.</p>
+    <p class="retain" lang="en">No data is retained after the request is fulfilled, unless required by law.</p>
+  </div>
+
+  <p class="draft-note">
+    <span lang="tr">Günlük Kazanç Hedefi, herhangi bir platform veya markayla resmi olarak bağlantılı değildir; kullanıcıların kendi gelir ve giderlerini takip etmesi için bağımsız olarak geliştirilmiştir. Sorularınız için: bitesdeveloper@gmail.com</span>
+    <span lang="en">Günlük Kazanç Hedefi is not officially affiliated with any platform or brand; it is an independent tool built for people to track their own income and expenses. Questions: bitesdeveloper@gmail.com</span>
+  </p>
+</div>
+
+<script>
+(function () {
+  var page = document.getElementById('page');
+  var buttons = document.querySelectorAll('[data-lang-btn]');
+  function setLang(lang) {
+    page.setAttribute('data-lang', lang);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+    });
+    var copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) copyBtn.textContent = copyBtn.getAttribute('data-' + lang) || copyBtn.textContent;
+    try { localStorage.setItem('skh-delete-lang', lang); } catch (e) {}
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+  });
+  var saved = null;
+  try { saved = localStorage.getItem('skh-delete-lang'); } catch (e) {}
+  setLang(saved === 'en' ? 'en' : 'tr');
+
+  var copyBtn = document.getElementById('copyBtn');
+  var emailEl = document.getElementById('email');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var text = emailEl.textContent;
+      function done() {
+        var lang = page.getAttribute('data-lang') || 'tr';
+        copyBtn.textContent = lang === 'en' ? 'Copied' : 'Kopyalandı';
+        setTimeout(function () { copyBtn.textContent = copyBtn.getAttribute('data-' + lang); }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {
+          var range = document.createRange();
+          range.selectNodeContents(emailEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        });
+      }
+    });
+  }
+})();
+</script>
