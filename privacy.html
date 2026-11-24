@@ -237,8 +237,8 @@
     <p class="eyebrow" lang="en">Privacy Policy</p>
     <h1 lang="tr">Günlük Kazanç Hedefi — Gizlilik Politikası</h1>
     <h1 lang="en">Günlük Kazanç Hedefi — Privacy Policy</h1>
-    <p class="updated" lang="tr">Son güncelleme: 25 Ekim 2026</p>
-    <p class="updated" lang="en">Last updated: October 25, 2026</p>
+    <p class="updated" lang="tr">Son güncelleme: 24 Kasım 2026</p>
+<p class="updated" lang="en">Last updated: November 24, 2026</p>
   </div>
 
   <p style="margin:0 0 10px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent)">Android</p>
@@ -255,6 +255,8 @@
       <li>Uygulama ayarlarınız (meslek, para birimi, çalışma günleri, bildirim tercihleri, dil seçimi)</li>
       <li>Konum verisi (isteğe bağlı, yalnızca şoför modu): yolculuk mesafesini ölçmek için, yalnızca "Yolculuk ekle" ile ölçüm başlattığınızda GPS konumunuz kullanılır</li>
       <li>Google hesabıyla giriş yaparsanız: Google hesabınızın e-posta adresi, adı ve benzersiz hesap kimliği (UID)</li>
+<li>İşyeri özelliğini kullanırsanız: işyeri adı ve logosu, çalışan adları, iş kayıtları (iş adı, müşteri adı, tutar), çalıştığınız günler, fazla mesai, prim, ücret bilgileri, işyeri giderleri (fatura, vergi, ürün alımı vb.), randevular (başlık, müşteri adı, müşteri telefonu, konum, not) ve bildirimler</li>
+<li>Kurye özelliğini kullanırsanız: etiket fotoğrafı (yalnızca cihazınızda işlenir) ve okunan teslimat adresleri (yalnızca telefonunuzda saklanır)</li>
     </ul>
     <p lang="en">The App collects or creates the following data:</p>
     <ul lang="en">
@@ -264,6 +266,8 @@
       <li>Your app settings (profession, currency, work days, notification preferences, language)</li>
       <li>Location data (optional, driver mode only): your GPS location is used only while an active trip measurement is running (from "Add trip" to "Finish")</li>
       <li>If you sign in with Google: your account's email address, name and unique account ID (UID)</li>
+<li>If you use the Workplace feature: workplace name and logo, staff names, job records (job name, customer name, amount), worked days, overtime, bonuses, pay details, workplace expenses (bills, taxes, purchases, etc.), appointments (title, customer name, customer phone, location, note) and notifications</li>
+<li>If you use the Courier feature: a photo of a parcel label (processed only on your device) and the recognized delivery addresses (stored only on your phone)</li>
     </ul>
   </section>
 
@@ -276,21 +280,39 @@
   </section>
 
   <section>
-    <h2><span class="num">3</span><span lang="tr">Konum izni</span><span lang="en">Location permission</span></h2>
-    <p lang="tr">Konum izni isteğe bağlıdır ve yalnızca şoför modunda GPS ile yolculuk mesafesi ölçmek için istenir. Ölçüm "Yolculuk ekle" ile başlar, "Bitir" ile sona erer; bu sırada bir bildirim sürekli görünür kalır (Android'in ön plan servisi kuralı gereği). Konum verisi kaydedilmez, yalnızca o anki mesafe hesabında kullanılır ve ölçüm bitince atılır. Konum verisi hiçbir zaman buluta gönderilmez.</p>
-    <p lang="en">Location permission is optional and requested solely to measure trip distance via GPS in driver mode. Measurement starts with "Add trip" and ends with "Finish"; a notification stays visible throughout (required by Android's foreground service rules). Location data is not stored — it's used only for the live distance calculation and discarded once measurement ends. It is never sent to the cloud.</p>
+<h2><span class="num">2a</span><span lang="tr">İşyeri özelliği</span><span lang="en">Workplace feature</span></h2>
+<p lang="tr">İşyeri özelliğini kullandığınızda yukarıda sayılan işyeri verileri Google Firebase (Cloud Firestore) üzerinde, işyerine bağlı hesapların erişebileceği şekilde saklanır. Çalışan yalnızca kendi kayıtlarını ve kendine atanan işleri görür; patron işyerindeki tüm kayıtları görür. İşyeri giderlerini yalnızca patron görür. Davet kodları tek kullanımlıktır ve 48 saat geçerlidir. Çalışan işyerinden ayrıldığında kayıtlar silinmez; kayıtları patron yönetir. İşyeri verilerinin silinmesini istemek için aşağıdaki adresten bize ulaşabilirsiniz. Bu veriler reklam veya izleme amacıyla kullanılmaz.</p>
+<p lang="en">When you use the Workplace feature, the workplace data listed above is stored on Google Firebase (Cloud Firestore), accessible to the accounts linked to that workplace. Staff see only their own records and the jobs assigned to them; the boss sees all workplace records. Workplace expenses are visible only to the boss. Invite codes are single-use and valid for 48 hours. Records are not deleted when staff leave; the boss manages them. To request deletion of workplace data, contact us at the address below. This data is never used for advertising or tracking.</p>
+</section>
+
+<section>
+<h2><span class="num">2b</span><span lang="tr">Abonelik</span><span lang="en">Subscription</span></h2>
+<p lang="tr">İşyeri özelliği Google Play üzerinden aylık abonelik olarak sunulur. Ödeme bilgileriniz (kart vb.) bize hiçbir zaman ulaşmaz, Google Play tarafından işlenir. Uygulama yalnızca aboneliğin geçerli olup olmadığını ve hangi paketin alındığını öğrenir ve bu bilgiyi işyeri kaydında saklar.</p>
+<p lang="en">The Workplace feature is offered as a monthly subscription through Google Play. Your payment details (card etc.) never reach us; they are processed by Google Play. The App only learns whether a subscription is valid and which plan was bought, and stores this in the workplace record.</p>
+</section>
+
+<section>
+<h2><span class="num">2c</span><span lang="tr">Kurye özelliği</span><span lang="en">Courier feature</span></h2>
+<p lang="tr">Kâğıt etiket fotoğrafı cihazınızda işlenir (cihaz üzerinde metin tanıma, Google ML Kit); fotoğraf okuma bittikten sonra silinir. Okunan adresler yalnızca telefonunuzda saklanır, sunucularımıza gönderilmez; teslim edilen paketler 3 gün sonra silinir. Adresi konuma çevirmek için telefonunuzun konum çözümleme hizmeti (Google) kullanılır; rota için konumunuz kullanılır. Navigasyonu başlattığınızda adres, seçtiğiniz harita uygulamasına (Google Haritalar veya Yandex Navigasyon) iletilir.</p>
+<p lang="en">The photo of a paper label is processed on your device (on-device text recognition, Google ML Kit) and is deleted once read. Recognized addresses are stored only on your phone and are not sent to our servers; delivered parcels are deleted after 3 days. Your phone's location service (Google) is used to turn an address into a map position, and your location is used for route ordering. When you start navigation, the address is handed to the map app you choose (Google Maps or Yandex Navigator).</p>
+</section>
+
+<section>
+<h2><span class="num">3</span><span lang="tr">Konum izni</span><span lang="en">Location permission</span></h2>
+    <p lang="tr">Konum izni isteğe bağlıdır ve şoför modunda GPS ile yolculuk mesafesini ölçmek ve kurye modunda rota sıralaması yapmak için istenir. Ölçüm "Yolculuk ekle" ile başlar, "Bitir" ile sona erer; bu sırada bir bildirim sürekli görünür kalır (Android'in ön plan servisi kuralı gereği). Konum verisi kaydedilmez, yalnızca o anki mesafe hesabında kullanılır ve ölçüm bitince atılır. Konum verisi hiçbir zaman buluta gönderilmez. Kamera izni yalnızca kurye modunda etiket fotoğrafı çekmek için kullanılır. İzinleri istediğiniz zaman telefon ayarlarından kapatabilirsiniz.</p>
+    <p lang="en">Location permission is optional and requested to measure trip distance via GPS in driver mode and to order routes in courier mode. Measurement starts with "Add trip" and ends with "Finish"; a notification stays visible throughout (required by Android's foreground service rules). Location data is not stored — it's used only for the live distance calculation and discarded once measurement ends. It is never sent to the cloud. Camera permission is used only to photograph labels in courier mode. You can turn permissions off in your phone settings at any time.</p>
   </section>
 
   <section>
     <h2><span class="num">4</span><span lang="tr">Bildirim izni</span><span lang="en">Notification permission</span></h2>
-    <p lang="tr">Günlük hedef hatırlatması, randevu ve alacak hatırlatmaları, sabit gider ödeme günü uyarıları ve yolculuk ölçüm bildirimi göstermek için bildirim izni istenir. Bu bildirimler yalnızca cihazınızda gösterilir.</p>
-    <p lang="en">Notification permission is requested to show the daily target reminder, appointment and receivable reminders, fixed-expense due-date warnings, and the trip-tracking notification. These notifications are shown only on your device.</p>
+    <p lang="tr">Günlük hedef hatırlatması, randevu ve alacak hatırlatmaları, sabit gider ödeme günü uyarıları, yolculuk ölçüm bildirimi ve işyeri bildirimleri (yeni iş, randevu, onay) göstermek için bildirim izni istenir.</p>
+    <p lang="en">Notification permission is requested to show the daily target reminder, appointment and receivable reminders, fixed-expense due-date warnings, the trip-tracking notification and workplace notifications (new job, appointment, approval).</p>
   </section>
 
   <section>
     <h2><span class="num">5</span><span lang="tr">Üçüncü taraflarla paylaşım</span><span lang="en">Sharing with third parties</span></h2>
-    <p lang="tr">Uygulama hiçbir veriyi reklam, pazarlama veya analitik amacıyla üçüncü taraflarla paylaşmaz, satmaz veya kiralamaz. Pro sürüm satın alma işlemi Google Play tarafından yürütülür; kart veya ödeme bilgileriniz uygulamaya iletilmez ve bizde saklanmaz. Google hesabıyla giriş yaptığınızda kullanılan Google Sign-In (kimlik doğrulama) ve Cloud Firestore (veri senkronizasyonu) hizmetleri, verilerinizi yalnızca Uygulamanın kendi işlevini — verilerinizi cihazlar arasında senkronize etmek — yerine getirmesi için Google'ın altyapı sağlayıcısı sıfatıyla işler; reklam veya izleme amacıyla kullanılmaz.</p>
-    <p lang="en">The App does not share, sell or rent any data to third parties for advertising, marketing or analytics purposes. The Pro purchase is processed by Google Play; your card or payment details are never passed to or stored by the App. When you sign in with Google, the Google Sign-In (authentication) and Cloud Firestore (data sync) services process your data solely as Google's infrastructure provider, to perform the App's own function of syncing your data across devices — never for advertising or tracking.</p>
+    <p lang="tr">Uygulama hiçbir veriyi reklam, pazarlama veya analitik amacıyla üçüncü taraflarla paylaşmaz, satmaz veya kiralamaz. İşyeri özelliğinde veriler yalnızca aynı işyerine bağlı hesaplar arasında, yukarıda anlatılan kurallarla görünür. Pro sürüm ve işyeri aboneliği satın alma işlemi Google Play tarafından yürütülür; kart veya ödeme bilgileriniz uygulamaya iletilmez ve bizde saklanmaz. Google hesabıyla giriş yaptığınızda kullanılan Google Sign-In (kimlik doğrulama) ve Cloud Firestore (veri senkronizasyonu) hizmetleri, verilerinizi yalnızca Uygulamanın kendi işlevini — verilerinizi cihazlar arasında senkronize etmek — yerine getirmesi için Google'ın altyapı sağlayıcısı sıfatıyla işler; reklam veya izleme amacıyla kullanılmaz.</p>
+    <p lang="en">The App does not share, sell or rent any data to third parties for advertising, marketing or analytics purposes. In the Workplace feature, data is visible only between accounts linked to the same workplace, as described above. The Pro and workplace subscription purchases are processed by Google Play; your card or payment details are never passed to or stored by the App. When you sign in with Google, the Google Sign-In (authentication) and Cloud Firestore (data sync) services process your data solely as Google's infrastructure provider, to perform the App's own function of syncing your data across devices — never for advertising or tracking.</p>
   </section>
 
   <section>
